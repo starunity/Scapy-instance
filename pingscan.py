@@ -15,8 +15,7 @@ def pingscan(ip):
     alive = []
     for answer in result[0]:
         answerpkt = answer[1]
-        if answerpkt[1].fields['type'] == 0 and \
-            answerpkt[1].fields['code'] == 0:
+        if answerpkt[1].fields['type'] == answerpkt[1].fields['code'] == 0:
             alive.append(answerpkt[0].fields['src'])
 
     return alive
