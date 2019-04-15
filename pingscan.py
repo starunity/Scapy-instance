@@ -23,7 +23,7 @@ def pingscan(ip):
 
 
 if __name__ == '__main__':
-    ip = input("Enter the IP address:")
+    ip = input("Enter IP address:")
     result = pingscan(ip)
     for i in result:
         print("{} is alive.".format(i))
