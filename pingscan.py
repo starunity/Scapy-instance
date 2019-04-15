@@ -9,14 +9,15 @@ def pingscan(ip):
     Ping the incoming IP.
     ip: Pass in an IP like 192.168.1.0 or 192.168.1.0/24
     """
-    ping = IP(dst=ip) / ICMP()
-    result = sr(ping, timeout=10, verbose=False)
+    answer, uanswer = sr( \
+        IP(dst=ip) / ICMP(), \
+        timeout=10, verbose=False \
+    )
     
     alive = []
-    for answer in result[0]:
-        answerpkt = answer[1]
-        if answerpkt[1].type == answerpkt[1].code == 0:
-            alive.append(answerpkt[0].src)
+    for send, recv in answer:
+        if recv[1].type == recv[1].code == 0:
+            alive.append(recv[0].src)
 
     return alive
 
