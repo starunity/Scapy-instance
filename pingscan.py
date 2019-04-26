@@ -16,7 +16,7 @@ def pingscan(ip):
     
     alive = []
     for send, recv in answer:
-        if recv[1].type == recv[1].code == 0:
+        if recv[ICMP].type == recv[ICMP].code == 0:
             alive.append(recv[0].src)
 
     return alive
