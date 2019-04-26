@@ -16,8 +16,8 @@ def arpscan(ip):
     
     mac_list = []
     for send, recv in answer:
-        if recv[1].op == 2:
-            mac_list.append((recv[1].psrc, recv.hwsrc))
+        if recv[ARP].op == 2:
+            mac_list.append((recv[ARP].psrc, recv[Ether].hwsrc))
 
     return mac_list
 
